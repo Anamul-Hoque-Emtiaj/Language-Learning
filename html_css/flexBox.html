@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Anamul Hoque Emtiaz</title>
+	<style type="text/css">
+		#container{
+			display: flex;
+			background-color: purple;
+			flex-wrap: wrap;
+			flex-direction: row;
+			/*flex-flow: wrap row; combinig 2*/
+			justify-content: flex-end;
+			height: 500px;
+			align-items: flex-start;
+		}
+		#container > div{
+			padding: 10px;
+			margin: 10px;
+			font-weight: bold;
+			font-size: 130%;
+			color: white;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div style="order: 2"> Contact</div>
+		<div style="order: 3"> Tutorial</div>
+		<div style="order: 1"> Home</div>
+		<div style="order: 4"> About</div>
+	</div>
+</body>
+</html>

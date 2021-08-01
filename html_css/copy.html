@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			margin: 0px;
+			padding: 0px;
+			background-color: gray;
+		}
+		#headline{
+			text-align: center;
+			margin: 15px;
+		}
+		#txtbx{
+			width: 308px;
+			height: 118px;
+			margin: auto;
+		}
+		#textbox{
+			width: 308px;
+			height: 118px;
+			background-color: white;
+			letter-spacing: 4px;
+			box-sizing: border-box;
+			font-weight: bold;
+			font-size: 200%;
+			text-align: right;
+			overflow: hidden;
+			color: black;
+			border: 3px solid brown;
+		}
+		.container1{
+			display: grid;
+			grid-template-columns: 77px 77px 77px 77px;
+			grid-template-rows: 60px 60px 60px 60px 60px;
+			/*grid-column-gap: 3px;
+			grid-row-gap: 3px;
+			grid-gap: 5px 5px;*/
+			justify-content: center;
+			
+		}
+		.container1 > div > input{
+			width: 77px;
+			height: 60px;
+			background-color: black;
+			text-align: center;
+			font-weight: bold;
+			font-size: 120%;
+			color: white;
+			padding: 15px;
+			border: brown 3px solid;
+			box-sizing: border-box;
+		}
+		.container1 > div > .dif{
+			background-color: skyblue;
+		}
+		#root{
+			font-weight: bolder;
+		}
+		#dif2{
+			background-color: tomato;
+		}
+		.container1 > div > input:focus,#dif2:focus{
+			background-color: peru;
+			font-size: 160%;
+			font-weight: bolder;
+			color: black;
+		}
+	</style>
+</head>
+<body>
+	<div id="headline">
+		<h1>
+			Calculator
+		</h1>
+	</div>
+	<div id="txtbx">
+		<input type="text" name="txtbx" id="textbox">
+	</div>
+	<div class="container1">
+		<div>
+			<input type="button" value="C" class="dif" onclick="c()">
+		</div>
+		<div>
+			<input type="button" value="√" class="dif" id="root" onclick="rt()">
+		</div>
+		<div>
+			<input type="button" value="%" class="dif" onclick="prcnt()">
+		</div>
+		<div>
+			<input type="button" value="/" class="dif" onclick="dv()">
+		</div>
+
+
+		<div>
+			<input type="button" value="7" onclick="svn()">
+		</div>
+		<div>
+			<input type="button" value="8" onclick="eght()">
+		</div>
+		<div>
+			<input type="button" value="9" onclick="nne()">
+		</div>
+		<div>
+			<input type="button" value="x" class="dif" onclick="mltp()">
+		</div>
+
+
+		<div>
+			<input type="button" value="4" onclick="fr()">
+		</div>
+		<div>
+			<input type="button" value="5" onclick="fv()">
+		</div>
+		<div>
+			<input type="button" value="6" onclick="sx()">
+		</div>
+		<div>
+			<input type="button" value="-" class="dif" onclick="mn()">
+		</div>
+
+
+		<div>
+			<input type="button" value="1" onclick="one()">
+		</div>
+		<div>
+			<input type="button" value="2" onclick="to()">
+		</div>
+		<div>
+			<input type="button" value="3" onclick="thr()">
+		</div>
+		<div>
+			<input type="button" value="+" class="dif" onclick="pls()">
+		</div>
+
+
+		<div>
+			<input type="button" value="0" onclick="zr()">
+		</div>
+		<div>
+			<input type="button" value="." onclick="dt()">
+		</div>
+		<div>
+			<input type="button" value="DEL" onclick="dl">
+		</div>
+		<div>
+			<input type="button" value="=" id="dif2" onclick="eql">
+		</div>
+
+    </div>
+    <script>
+        var txtb = document.getElementById("textbox");
+        function c(){
+            txtb.write="1";
+        }
+        function rt(){
+            txtb.innerHTML="√";
+        }
+        function prcnt(){
+            txtb.innerHTML="%";
+        }
+        function dv(){
+            txtb.write("/");
+        }
+        function svn(){
+            txtb.write("7");
+        }
+    </script>
+</body>
+</html>

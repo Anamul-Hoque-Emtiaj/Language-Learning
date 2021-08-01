@@ -1,0 +1,17 @@
+///#include<bits/stdc++.h> run time besi laghe
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    vector<int>v;
+    for(int i=0;i<10;i++)
+    {
+        v.push_back(i+1);
+    }
+
+    for(int i=0;i!=v.size();i++) cout<<v[i]<<" ";
+    cout<<endl<<v.max_size()<<endl<<endl;
+    cout<<v.capacity()<<endl;
+}

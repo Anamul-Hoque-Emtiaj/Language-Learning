@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			margin: 0px;
+			padding: 0px;
+		}
+		#container{
+			background-color: orange;
+			display: grid;
+			grid-template-columns: auto auto auto auto auto auto;
+			justify-content: center;
+			align-content: center;
+		}
+		#container > div{
+			padding: 10px;
+			border: 2px black solid;
+			font-size: 2rem;
+			font-weight: bold;
+			text-align: center;
+			border-collapse:collapse;
+		}
+		#item1{
+			grid-column: 1 / 7;
+			grid-row: 1 / 2;
+		}
+		#item2{
+			grid-column: 1 / 2;
+			grid-row: 2 / 4;
+		}
+		#item3{
+			grid-column-start: 2;
+			grid-column-end: 5;
+			grid-row-start: 2;
+			grid-row-end: 3;
+		}
+		#item4{
+			grid-column: 5 / 7;
+			grid-row: 2 / 3;
+		}
+		#item5{
+			grid-column: 2 / span 6;
+			grid-row: 3 / 4;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="item1">Header</div>
+		<div id="item2">Menu</div>
+		<div id="item3">Main</div>
+		<div id="item4">Aside</div>
+		<div id="item5">Footer</div>
+	</div>
+</body>
+</html>

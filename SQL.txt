@@ -1,0 +1,396 @@
+1) SHOW DATABASES;
+
+2) CREATE DATABASE BUET;
+
+3) DROP DATABASE BUET;
+
+4)
+
+CREATE TABLE Student
+(
+   Roll int(5),
+   Name varchar(20),
+   Gender varchar(20),
+   Age int(3),
+   GPA double(3,2),
+   PRIMARY KEY(Roll)
+);
+
+5) RENAME TABLE stduent TO Students;
+
+6) DROP TABLE Students;
+
+7) 
+
+INSERT INTO students
+VALUES(101,'Rahim','Male',18,3.45,'Dhaka');
+
+ OR
+
+INSERT INTO students(Roll,Name,Gender,Age,GPA,City)
+VALUES(101,'Rahim','Male',18,3.45,'Dhaka');
+
+ OR
+
+INSERT INTO students
+VALUES
+(102,'Mahim','Male',20,4.45,'Dhaka'),
+(103,'Pori','Female',19,5.00,'Ottowa');
+
+8)
+
+SELECT * 
+FROM Students;
+
+or
+
+SELECT Name
+FROM Students;
+
+or
+
+SELECT Name,Age,GPA
+FROM Students;
+
+9)
+
+SELECT DISTINCT City
+FROM Students;
+
+10)
+
+SELECT *
+FROM Students
+LIMIT 2;
+
+or
+
+SELECT *
+FROM Students
+LIMIT 2,4;
+
+
+11)
+
+SELECT * 
+FROM Students
+ORDER BY Name;
+
+or
+
+SELECT * 
+FROM Students
+ORDER BY Name DESC;
+
+or
+
+SELECT * 
+FROM Students
+ORDER BY Name,Roll;
+
+12) SELECT 5+2 //+,-,*,/,%\\
+
+13)
+
+SELECT *
+FROM students
+WHERE City = 'DHAKA';
+
+OR
+
+SELECT *
+FROM students
+WHERE Age>=19; //>,<,>=,<=,!=,=
+
+OR
+
+SELECT *
+FROM students
+WHERE ROLL BETWEEN 101 AND 103;
+
+14)
+
+SELECT *
+FROM students
+WHERE City = 'DHAKA'
+ORDER BY Age DESC;
+
+15)
+
+SELECT *
+FROM students
+WHERE Gender='Female' OR City='Chandpur';
+
+SELECT *
+FROM students
+WHERE Gender='Female' AND City='Ottowa';
+
+SELECT *
+FROM students
+WHERE City IN ('Chandpur','Ottowa');
+
+SELECT *
+FROM students
+WHERE City NOT IN ('Chandpur','Ottowa');
+
+16)
+
+//PORI
+
+SELECT *
+FROM students
+WHERE Name LIKE 'P%';
+
+SELECT *
+FROM students
+WHERE Name LIKE '%i';
+
+SELECT *
+FROM students
+WHERE Name LIKE '%OR%';
+
+SELECT *
+FROM students
+WHERE Name LIKE '--R%';
+
+17)
+
+SELECT Roll AS ID,Name AS 'First Name'
+FROM students;
+
+18)
+
+CREATE TABLE Teachers
+(
+    ID int NOT NULL AUTO_INCREMENT,
+    Name varchar(20) NOT NULL,
+    Sallary int,
+    PRIMARY KEY(ID)
+);
+
+INSERT INTO Teachers
+VALUES(100,'Saifur',250000);
+
+INSERT INTO Teachers(Name,Sallary)
+VALUES
+('Ovi',200000);
+
+INSERT INTO Teachers(Name)
+VALUES
+('Asikur');
+
+//primary key= not null + unique
+
+19) 
+
+UPDATE teachers
+SET Sallary = 190000
+where ID=102;
+
+UPDATE teachers
+SET Sallary = Sallary + 2000
+where ID=102;
+
+20)
+
+DELETE FROM teachers
+WHERE ID=101;
+
+
+DELETE FROM teachers //delete all record
+
+21)
+
+SELECT UPPER("i am from bd");
+
+SELECT lower("I AM FROM BD");
+
+SELECT UPPER(City)
+FROM Students;
+
+22)
+
+SELECT concat(Name,' is ',Age,' years old')
+FROM students;
+
+23)
+
+SELECT GREATEST(10,5,15,-20);
+
+SELECT LEAST(10,5,15,-20);
+
+SELECT POW(2,3);
+
+SELECT LOG(2);
+
+SELECT TRUNCATE(10.256574855,3);
+
+SELECT TRUNCATE(LOG(2),3);
+
+SELECT RAND();
+
+SELECT EXP();
+
+24)
+
+DESCRIBE students;
+
+SELECT COUNT(*)
+FROM STUDENTS;
+
+SELECT SUM(GPA)
+FROM STUDENTS;
+
+SELECT AVG(GPA)
+FROM STUDENTS;
+
+SELECT MAX(GPA)
+FROM STUDENTS;
+
+SELECT MIN(GPA)
+FROM STUDENTS;
+
+SELECT MIN(GPA),MAX(GPA),SUM(AGE),AVG(Age),COUNT(*)
+FROM students;
+
+SELECT *
+FROM STUDENTS
+WHERE GPA>(SELECT AVG(GPA) FROM STUDENTS);
+
+25)
+
+ALTER TABLE teachers
+ADD Age int(3);
+
+ALTER TABLE teachers
+CHANGE Sallary Monthly_Income int(8);
+
+ALTER TABLE teachers
+DROP COLUMN Age;
+
+26)
+
+SELECT City,AVG(GPA)
+FROM students
+GROUP BY City
+ORDER BY Name;
+
+27) 
+
+//DELETE ALL THE RECORD
+
+TRUNCATE TABLE TEACHERS;
+
+28)
+
+CREATE TABLE Teacher_Details
+(
+	Reg int AUTO_INCREMENT,
+    ID int(3),
+    Age int(3),
+    PRIMARY KEY(Reg)
+);
+
+INSERT INTO teacher_details(Reg,ID,Age)
+VALUES(1000,102,25);
+
+INSERT INTO teacher_details(ID,Age)
+VALUES(101,27),
+(104,37),
+(103,30);
+
+
+SELECT teachers.ID,Reg,Name,Age,Monthly_Income,DEPT
+FROM teacher_details,teachers
+WHERE teacher_details.ID=teachers.ID;
+
+29)
+
+SELECT tr.ID,td.Reg,tr.Name,td.Age,tr.Monthly_Income,tr.DEPT
+FROM teacher_details AS td ,teachers AS tr
+WHERE td.ID=tr.ID;
+
+SELECT tr.ID,td.Reg,tr.Name,td.Age,tr.Monthly_Income,tr.DEPT
+FROM teacher_details AS td JOIN teachers AS tr
+ON td.ID=tr.ID;
+
+SELECT tr.ID,td.Reg,tr.Name,td.Age,tr.Monthly_Income,tr.DEPT
+FROM teacher_details AS td INNER JOIN teachers AS tr
+ON td.ID=tr.ID;
+
+SELECT tr.ID,td.Reg,tr.Name,td.Age,tr.Monthly_Income,tr.DEPT
+FROM teacher_details AS td LEFT JOIN teachers AS tr
+ON td.ID=tr.ID;
+
+SELECT tr.ID,td.Reg,tr.Name,td.Age,tr.Monthly_Income,tr.DEPT
+FROM teacher_details AS td RIGHT JOIN teachers AS tr
+ON td.ID=tr.ID;
+
+30)
+
+CREATE TABLE Student2
+(
+    Roll int(5),
+    Name varchar(20),
+    Gender varchar(10),
+    Age int(3),
+    GPA double(3,2),
+    City varchar(20)
+);
+
+INSERT INTO student2
+VALUES
+(110,'Mahbub','Male',19,5.00,'Chandpur'),
+(111,'Ashik','Male',10,3.00,'Syleth'),
+(103,'Pori','Female',19,5.00,'ottowa');
+
+
+SELECT Roll,Name,Gender,Age,GPA,City
+FROM students
+UNION
+SELECT Roll,Name,Gender,Age,GPA,City
+FROM student2;
+
+SELECT Roll,Name,Gender,Age,GPA,City
+FROM students
+UNION ALL
+SELECT Roll,Name,Gender,Age,GPA,City
+FROM student2;
+
+31)
+
+CREATE VIEW STD_VIEW AS
+SELECT Roll,Name,GPA;
+FROM students;
+
+SELECT *
+FROM STD_VIEW;
+
+//UPADE DELETE SAME AS TABLE
+
+32)
+
+SELECT CURRENT_DATE();
+
+SELECT CURRENT_TIME();
+
+SELECT NOW();
+
+SELECT ADDDATE('2020-9-2',INTERVAL 10 DAY)
+
+SELECT ADDDATE('2020-9-2',INTERVAL 10 YEAR)
+
+SELECT SUBDATE('2020-9-2',INTERVAL 10 DAY);
+
+SELECT MAKEDATE(2021,65);
+
+SELECT DAYNAME('2000-03-17');
+
+SELECT MONTHNAME('2000-03-17');
+
+***
+
+SELECT DOB,DAYNAME(DOB)
+FROM STUDENTS;
+
+***

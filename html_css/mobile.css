@@ -1,0 +1,48 @@
+#container{
+    display: flex;
+    flex-direction: column;
+}
+#header{
+    background-color: brown;
+    padding: 15px;
+    text-align: center;
+    font-size: 120%;
+    font-weight: bolder;
+}
+#nav-manu{
+    background-color: rgb(10, 81, 212);
+    display: flex;
+    flex-direction: column;
+}
+#nav-manu div{
+   background-color: brown;
+   margin: 10px;
+   padding: 10px;
+   text-align: center;
+}
+#nav-manu a{
+    text-decoration: none;
+    color: white;
+}
+#nav-manu a:hover{
+    text-decoration: underline;
+    color: black;
+    font-weight: bold;
+}
+#main{
+    background-color: cadetblue;
+}
+#aside{
+    background-color: rgb(10, 81, 212);
+    
+}
+#main h2,#main p,#aside h3,#aside p{
+    margin: 10px;
+}
+#footer{
+    background-color: black;
+    padding: 8px;
+    color: white;
+    text-align: center;
+    font-size: 75%;
+}

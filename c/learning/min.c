@@ -1,0 +1,18 @@
+#include<stdio.h>
+int main()
+{
+    int j;
+    scanf("%d",&j);
+    int i,x[j],m;
+    for(i=0;i<j;i++){
+        scanf("%d",&x[i]);
+    }m=0;
+    for(i=0;i<j;i++){
+        if(x[i]<x[m]){
+         m=i;}
+            }
+            printf("%d\n",x[m]);
+            return 0;
+
+}
+
